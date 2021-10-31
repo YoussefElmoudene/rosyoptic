@@ -10,7 +10,9 @@ import java.util.Optional;
 
 @Service
 public class ClientService {
-
+    public Client findClientById(Long id) {
+        return clientDao.findClientById(id);
+    }
 
     public Client findByNomAndPrenom(String nom, String prenom) {
         return clientDao.findByNomAndPrenom(nom, prenom);
@@ -32,9 +34,8 @@ public class ClientService {
         return clientDao.findById(id);
     }
 
-    public int save(Client client) {
-        clientDao.save(client);
-        return 0;
+    public Client save(Client client) {
+        return clientDao.save(client);
     }
 
     @Autowired

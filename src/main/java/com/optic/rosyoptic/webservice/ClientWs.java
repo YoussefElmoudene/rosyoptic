@@ -34,8 +34,13 @@ public class ClientWs {
     }
 
     @PostMapping("/")
-    public int save(@RequestBody Client client) {
+    public Client save(@RequestBody Client client) {
         return clientService.save(client);
+    }
+
+    @GetMapping("/id/{id}")
+    public Client findClientById(@PathVariable Long id) {
+        return clientService.findClientById(id);
     }
 
     @Autowired

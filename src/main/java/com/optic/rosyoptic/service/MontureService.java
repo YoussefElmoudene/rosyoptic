@@ -1,5 +1,7 @@
 package com.optic.rosyoptic.service;
 
+import com.optic.rosyoptic.bean.Client;
+import com.optic.rosyoptic.bean.Fournisseur;
 import com.optic.rosyoptic.bean.Montures;
 import com.optic.rosyoptic.repository.MonturesDao;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,11 +29,25 @@ public class MontureService {
         return monturesDao.findByEtat(etat);
     }
 
+    public Montures findMonturesById(Long id) {
+        return monturesDao.findMonturesById(id);
+    }
+
     public int save(Montures montures) {
-         monturesDao.save(montures);
-        return 0;
+        Fournisseur fournisseur = this.fourService.findFournisseurById(montures.getFournisseur().getId());
+        if (fournisseur == null) {
+            return -1;
+        } else {
+            montures.setFournisseur(fournisseur);
+            monturesDao.save(montures);
+            return 0;
+        }
     }
 
     @Autowired
     private MonturesDao monturesDao;
+    @Autowired
+    private FournisseurService fourService;
+    @Autowired
+    private ClientService clientService;
 }

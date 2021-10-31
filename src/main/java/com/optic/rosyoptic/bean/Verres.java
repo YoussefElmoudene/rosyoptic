@@ -1,10 +1,7 @@
 package com.optic.rosyoptic.bean;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-
 import javax.persistence.*;
 import java.io.Serializable;
-import java.sql.Date;
 
 @Entity
 public class Verres implements Serializable
@@ -13,29 +10,10 @@ public class Verres implements Serializable
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String marque;
-    private String series;
-    private double qte;// NB: chaque fois que un monture vendu qte--
+    private String traitement;
     private double price;
-    private double totalPrice;
-    private String etat; // vendu ou disponible ** disponible par defaut
-    @JsonFormat(pattern = "yyyy-MM-dd")
-    private Date buyingDate;  // buy ***
-    @JsonFormat(pattern = "yyyy-MM-dd")
-    private Date sellingDate; // sell possible null**
-
     @ManyToOne
     private Fournisseur fournisseur;
-
-    @ManyToOne
-    private Client client;
-
-    public Client getClient() {
-        return client;
-    }
-
-    public void setClient(Client client) {
-        this.client = client;
-    }
 
     public Fournisseur getFournisseur() {
         return fournisseur;
@@ -45,37 +23,14 @@ public class Verres implements Serializable
         this.fournisseur = fournisseur;
     }
 
-    public String getSeries() {
-        return series;
+    public String getTraitement() {
+        return traitement;
     }
 
-    public void setSeries(String series) {
-        this.series = series;
+    public void setTraitement(String traitement) {
+        this.traitement = traitement;
     }
 
-    public String getEtat() {
-        return etat;
-    }
-
-    public void setEtat(String etat) {
-        this.etat = etat;
-    }
-
-    public Date getBuyingDate() {
-        return buyingDate;
-    }
-
-    public void setBuyingDate(Date buyingDate) {
-        this.buyingDate = buyingDate;
-    }
-
-    public Date getSellingDate() {
-        return sellingDate;
-    }
-
-    public void setSellingDate(Date sellingDate) {
-        this.sellingDate = sellingDate;
-    }
 
     public Long getId() {
         return id;
@@ -93,13 +48,6 @@ public class Verres implements Serializable
         this.marque = marque;
     }
 
-    public double getQte() {
-        return qte;
-    }
-
-    public void setQte(double qte) {
-        this.qte = qte;
-    }
 
     public double getPrice() {
         return price;
@@ -109,11 +57,4 @@ public class Verres implements Serializable
         this.price = price;
     }
 
-    public double getTotalPrice() {
-        return totalPrice;
-    }
-
-    public void setTotalPrice(double totalPrice) {
-        this.totalPrice = totalPrice;
-    }
 }

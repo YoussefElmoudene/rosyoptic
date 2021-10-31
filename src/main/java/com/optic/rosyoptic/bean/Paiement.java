@@ -2,10 +2,7 @@ package com.optic.rosyoptic.bean;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Date;
 
@@ -21,6 +18,17 @@ public class Paiement implements Serializable {
     private double montantTotale;
     private double totalPay;
     private double restAPay;
+    @OneToOne
+    private Fournisseur fournisseur;
+
+
+    public Fournisseur getFournisseur() {
+        return fournisseur;
+    }
+
+    public void setFournisseur(Fournisseur fournisseur) {
+        this.fournisseur = fournisseur;
+    }
 
     public double getTotalPay() {
         return totalPay;

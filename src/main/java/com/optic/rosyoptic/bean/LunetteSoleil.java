@@ -21,20 +21,8 @@ public class LunetteSoleil implements Serializable {
     private Date buyingDate;  // buy ***
     @JsonFormat(pattern = "yyyy-MM-dd")
     private Date sellingDate; // sell possible null**
-
     @ManyToOne
-    private Fournisseur fournisseur;
-
-    @ManyToOne
-    private Client client;
-
-    public Client getClient() {
-        return client;
-    }
-
-    public void setClient(Client client) {
-        this.client = client;
-    }
+    private Fournisseur fournisseur = new Fournisseur();
 
     public Long getId() {
         return id;

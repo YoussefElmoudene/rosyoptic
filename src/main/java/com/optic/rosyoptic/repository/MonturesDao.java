@@ -11,5 +11,6 @@ public interface MonturesDao extends JpaRepository<Montures,Long> {
     List<Montures>  findByMarque(String marque);
     List<Montures>  findBySeries(String series);
     List<Montures>  findByEtat(String etat);
+    Montures findMonturesById(Long id);
 
 }

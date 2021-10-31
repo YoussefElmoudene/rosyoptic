@@ -13,6 +13,6 @@ public interface ClientDao extends JpaRepository<Client, Long> {
      Client findByNomAndPrenom(String nom, String prenom);
 
     Client findByTele(String tele);
-
+    Client findClientById( Long id);
     Client findByEmail(String email);
 }

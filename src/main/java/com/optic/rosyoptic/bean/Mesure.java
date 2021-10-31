@@ -2,6 +2,7 @@ package com.optic.rosyoptic.bean;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.sql.Date;
 
 @Entity
 public class Mesure implements Serializable {
@@ -14,9 +15,17 @@ public class Mesure implements Serializable {
     private double cyl;
     private double sph;
     private double prisme;
-
+    private Date date;
     @ManyToOne
     private Client client;
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
 
     public Client getClient() {
         return client;

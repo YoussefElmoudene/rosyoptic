@@ -8,5 +8,6 @@ import java.util.List;
 
 @Repository
 public interface MesureDao extends JpaRepository<Mesure, Long> {
-    List<Mesure>  findByAxe(double axe);
+    List<Mesure>  findByAxe(double axe); // findByDate
+    List<Mesure> findByClientNomAndClientPrenom(String nom, String prenom);
 }

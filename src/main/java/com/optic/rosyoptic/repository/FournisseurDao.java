@@ -8,4 +8,5 @@ import org.springframework.stereotype.Repository;
 public interface FournisseurDao extends JpaRepository<Fournisseur,Long> {
     Fournisseur findByName(String name);
     Fournisseur findByTelephone(String telephone);
+    Fournisseur findFournisseurById(Long id);
 }

@@ -1,5 +1,7 @@
 package com.optic.rosyoptic.service;
 
+import com.optic.rosyoptic.bean.Client;
+import com.optic.rosyoptic.bean.Fournisseur;
 import com.optic.rosyoptic.bean.Verres;
 import com.optic.rosyoptic.repository.VerresDao;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,12 +16,8 @@ public class VerreService {
         return verresDao.findByMarque(marque);
     }
 
-    public List<Verres> findBySeries(String series) {
-        return verresDao.findBySeries(series);
-    }
-
-    public List<Verres> findByEtat(String etat) {
-        return verresDao.findByEtat(etat);
+    public Verres findVerresById(Long id) {
+        return verresDao.findVerresById(id);
     }
 
     public List<Verres> findAll() {
@@ -27,10 +25,20 @@ public class VerreService {
     }
 
     public int save(Verres verres) {
-        verresDao.save(verres);
-        return 0;
+        Fournisseur fournisseur = this.fournisseurService.findFournisseurById(verres.getFournisseur().getId());
+        if (fournisseur == null) {
+            return -1;
+        } else {
+            verres.setFournisseur(fournisseur);
+            verresDao.save(verres);
+            return 0;
+        }
     }
 
     @Autowired
     private VerresDao verresDao;
+    @Autowired
+    private FournisseurService fournisseurService;
+    @Autowired
+    private ClientService clientService;
 }

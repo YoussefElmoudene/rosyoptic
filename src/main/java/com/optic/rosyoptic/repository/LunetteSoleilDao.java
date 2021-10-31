@@ -11,4 +11,5 @@ public interface LunetteSoleilDao extends JpaRepository<LunetteSoleil,Long> {
     List<LunetteSoleil> findByMarque(String marque);
     List<LunetteSoleil> findBySeries(String series);
     List<LunetteSoleil> findByEtat(String etat);
+    LunetteSoleil findLunetteSoleilById(Long id);
 }

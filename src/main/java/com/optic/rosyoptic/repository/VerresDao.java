@@ -9,6 +9,5 @@ import java.util.List;
 @Repository
 public interface VerresDao extends JpaRepository<Verres,Long> {
     List<Verres> findByMarque(String marque);
-    List<Verres>  findBySeries(String series);
-    List<Verres>  findByEtat(String etat);
+    Verres findVerresById(Long id);
 }

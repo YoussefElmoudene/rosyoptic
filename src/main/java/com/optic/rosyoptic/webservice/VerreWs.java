@@ -17,15 +17,8 @@ public class VerreWs {
     public List<Verres> findByMarque(@PathVariable String marque) {
         return verreService.findByMarque(marque);
     }
-    @GetMapping("/series/{series}")
-    public List<Verres> findBySeries(@PathVariable String series) {
-        return verreService.findBySeries(series);
-    }
 
-    @GetMapping("/etat/{etat}")
-    public List<Verres> findByEtat(@PathVariable  String etat) {
-        return verreService.findByEtat(etat);
-    }
+
     @GetMapping("/")
     public List<Verres> findAll() {
         return verreService.findAll();

@@ -17,6 +17,11 @@ public class MesureWs {
         return mesureService.findByAxe(axe);
     }
 
+    @GetMapping("/nom/{nom}/prenom/{prenom}")
+    public List<Mesure> findByClientNomAndClientPrenom(@PathVariable String nom,@PathVariable String prenom) {
+        return mesureService.findByClientNomAndClientPrenom(nom, prenom);
+    }
+
     @GetMapping("/")
     public List<Mesure> findAll() {
         return mesureService.findAll();

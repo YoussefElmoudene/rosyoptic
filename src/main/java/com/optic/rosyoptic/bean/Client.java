@@ -29,42 +29,6 @@ public class Client implements Serializable {
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private List<Mesure> mesure;
 
-    @OneToMany(mappedBy = "client")
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    private List<LunetteSoleil> lunetteSoleils ;          //TODO possible null
-
-
-    @OneToMany(mappedBy = "client")
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    private List<Verres> verresList ;                       //TODO possible null
-
-    @OneToMany(mappedBy = "client")
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    private List<Montures> montures ;                        //TODO possible null
-
-    public List<LunetteSoleil> getLunetteSoleils() {
-        return lunetteSoleils;
-    }
-
-    public void setLunetteSoleils(List<LunetteSoleil> lunetteSoleils) {
-        this.lunetteSoleils = lunetteSoleils;
-    }
-
-    public List<Verres> getVerresList() {
-        return verresList;
-    }
-
-    public void setVerresList(List<Verres> verresList) {
-        this.verresList = verresList;
-    }
-
-    public List<Montures> getMontures() {
-        return montures;
-    }
-
-    public void setMontures(List<Montures> montures) {
-        this.montures = montures;
-    }
 
     public List<Mesure> getMesure() {
         return mesure;

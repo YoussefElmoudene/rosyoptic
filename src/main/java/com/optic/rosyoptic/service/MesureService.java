@@ -12,6 +12,11 @@ import java.util.Optional;
 @Service
 public class MesureService {
 
+
+    public List<Mesure> findByClientNomAndClientPrenom(String nom, String prenom) {
+        return mesureDao.findByClientNomAndClientPrenom(nom, prenom);
+    }
+
     public List<Mesure> findByAxe(double axe) {
         return mesureDao.findByAxe(axe);
     }

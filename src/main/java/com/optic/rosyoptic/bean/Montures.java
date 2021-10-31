@@ -11,12 +11,11 @@ public class Montures implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private double barCode;
     private String marque;
     private String modele;
     private String series;
     private String etat; // vendu ou disponible ** disponible par defaut
-    private double prix;
+    private double price;
     private double priceTotale; // auto calculated for same marques and series
     private double stock; // NB: chaque fois que un monture vendu stock--
     @JsonFormat(pattern = "yyyy-MM-dd")
@@ -26,8 +25,7 @@ public class Montures implements Serializable {
 
     @ManyToOne
     private Fournisseur fournisseur;
-    @ManyToOne
-    private Client client;
+
 
     public Fournisseur getFournisseur() {
         return fournisseur;
@@ -37,13 +35,6 @@ public class Montures implements Serializable {
         this.fournisseur = fournisseur;
     }
 
-    public Client getClient() {
-        return client;
-    }
-
-    public void setClient(Client client) {
-        this.client = client;
-    }
 
     public String getEtat() {
         return etat;
@@ -69,13 +60,6 @@ public class Montures implements Serializable {
         this.id = id;
     }
 
-    public double getBarCode() {
-        return barCode;
-    }
-
-    public void setBarCode(double barCode) {
-        this.barCode = barCode;
-    }
 
     public String getMarque() {
         return marque;
@@ -94,12 +78,12 @@ public class Montures implements Serializable {
     }
 
 
-    public double getPrix() {
-        return prix;
+    public double getPrice() {
+        return price;
     }
 
-    public void setPrix(double prix) {
-        this.prix = prix;
+    public void setPrice(double prix) {
+        this.price = prix;
     }
 
     public double getStock() {

@@ -24,6 +24,9 @@ public class FournisseurService {
         return fournisseurDao.findAll();
     }
 
+    public Fournisseur findFournisseurById(Long id) {
+        return fournisseurDao.findFournisseurById(id);
+    }
 
     public int save(Fournisseur fournisseur) {
         fournisseurDao.save(fournisseur);
