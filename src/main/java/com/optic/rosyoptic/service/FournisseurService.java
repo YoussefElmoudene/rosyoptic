@@ -19,7 +19,7 @@ public class FournisseurService {
     public Fournisseur findByTelephone(String telephone) {
         return fournisseurDao.findByTelephone(telephone);
     }
-
+    
     public List<Fournisseur> findAll() {
         return fournisseurDao.findAll();
     }

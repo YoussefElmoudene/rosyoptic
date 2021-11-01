@@ -14,12 +14,12 @@ public class ClientWs {
 
 
     @GetMapping("/nom/{nom}/prenom/{prenom}")
-    public Client findByNomAndPrenom(@PathVariable String nom,@PathVariable String prenom) {
+    public Client findByNomAndPrenom(@PathVariable String nom, @PathVariable String prenom) {
         return clientService.findByNomAndPrenom(nom, prenom);
     }
 
     @GetMapping("/tele/{tele}")
-    public Client findByTele( @PathVariable String tele) {
+    public Client findByTele(@PathVariable String tele) {
         return clientService.findByTele(tele);
     }
 
